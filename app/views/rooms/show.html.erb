@@ -1,0 +1,11 @@
+<h1>施設詳細</h1>
+<div>
+  <%= image_tag @room.image.presence || "default_room.png", alt: "施設画像" %>
+  <h2><%= @room.name %></h2>
+  <p><%= @room.description %></p>
+  <p>宿泊料金: <%= @room.price %>円/日</p>
+</div>
+
+<%= link_to "予約する", new_room_reservation_path(@room), class: "btn btn-primary" %>
+
+<%= link_to "戻る", :back %>

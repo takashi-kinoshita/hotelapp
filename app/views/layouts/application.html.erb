@@ -5,12 +5,43 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Use the latest Bootstrap version -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
   </head>
 
   <body>
+    <header>
+      <%= link_to "HotelApp", root_path, class: "logo" %>
+
+      <nav>
+        <% if user_signed_in? %>
+          <%= image_tag current_user.icon_image_url, width: '50', height: '50', class: "profile-icon" %>
+          <div class="dropdown">
+  <%= link_to "#", { class: "dropdown-toggle nav-link", role: "button", id: "userMenu", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" } do %>
+    <%= current_user.name %> <span class="caret"></span>
+  <% end %>
+
+  <div class="dropdown-menu" aria-labelledby="userMenu">
+    <%= link_to "施設の新規登録", new_room_path, class: "dropdown-item" %>
+    <%= link_to "予約済み一覧", reservations_path, class: "dropdown-item" %>
+    <%= link_to "登録済み一覧", rooms_path, class: "dropdown-item" %>
+    <%= link_to "アカウント設定", edit_user_registration_path, class: "dropdown-item" %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+  </div>
+</div>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "nav-link" %>
+        <% end %>
+      </nav>
+    </header>
     <%= yield %>
+
+    <!-- Add the latest Bootstrap JavaScript bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -1,0 +1,60 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+// Colors
+$primary-color: #2c3e50;
+$secondary-color: #2980b9;
+$light-color: #ecf0f1;
+$dark-color: #34495e;
+
+// Typography
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+body {
+  font-family: $font-family;
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+.user-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: $light-color;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-image {
+  img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.user-name {
+  h1 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+}
+
+.user-details {
+  margin-bottom: 1rem;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,0 +1,85 @@
+// Place all the styles related to the Profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+// Colors
+$primary-color: #2c3e50;
+$secondary-color: #2980b9;
+$light-color: #ecf0f1;
+$dark-color: #34495e;
+
+// Typography
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+body {
+  font-family: $font-family;
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: $light-color;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 2rem;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.profile-info {
+  h2 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  .profile-email {
+    color: $secondary-color;
+    font-weight: bold;
+  }
+}
+
+.profile-content {
+  padding: 1rem;
+  border-top: 1px solid $dark-color;
+  border-bottom: 1px solid $dark-color;
+  margin-bottom: 2rem;
+
+  h3 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+.profile-edit {
+  text-align: right;
+
+  a {
+    color: $secondary-color;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: darken($secondary-color, 10%);
+    }
+  }
+}

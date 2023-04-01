@@ -1,0 +1,72 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+// Colors
+$primary-color: #2c3e50;
+$secondary-color: #2980b9;
+$light-color: #ecf0f1;
+$dark-color: #34495e;
+
+// Typography
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+body {
+  font-family: $font-family;
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $primary-color;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $secondary-color;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: darken($secondary-color, 10%);
+  }
+}
+
+button {
+  background-color: $secondary-color;
+  color: $light-color;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+.header {
+  background-color: $primary-color;
+  color: $light-color;
+  padding: 1rem 0;
+}
+
+.content {
+  padding: 2rem 0;
+}
+
+.footer {
+  background-color: $dark-color;
+  color: $light-color;
+  padding: 1rem 0;
+  text-align: center;
+}
