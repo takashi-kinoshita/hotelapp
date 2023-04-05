@@ -1,0 +1,55 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: メールアドレス
+      reservation:
+        check_in: チェックイン日
+        check_out: チェックアウト日
+        num_of_guests: 人数
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "名前を入力してください"
+        reservation:
+          attributes:
+            check_in:
+              blank: "チェックイン日を入力してください"
+            check_out:
+              blank: "チェックアウト日を入力してください"
+            num_of_guests:
+              blank: "人数を入力してください"
+          check_out_after_check_in: "チェックアウト日はチェックイン日より後の日付にしてください"
+  devise:
+    confirmations:
+      confirmed: 'アカウントが確認されました。'
+    failures:
+      already_authenticated: 'すでにログイン済みです。'
+      inactive: 'アカウントがアクティブではありません。'
+      invalid: 'メールアドレスまたはパスワードが無効です。'
+      locked: 'アカウントがロックされています。'
+      not_found_in_database: 'メールアドレスまたはパスワードが無効です。'
+      timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
+      unauthenticated: 'ログインが必要です。'
+      unconfirmed: 'アカウントが確認されていません。'
+    mailer:
+      confirmation_instructions:
+        subject: '確認のメール'
+      reset_password_instructions:
+        subject: 'パスワード再設定のメール'
+      unlock_instructions:
+        subject: 'アカウントのロック解除のメール'
+    passwords:
+      no_token: 'トークンがありません。'
+      send_instructions: 'パスワード再設定のためのリンクを送信しました。'
+      sent: 'パスワード再設定のためのリンクが送信されました。'
+      updated: 'パスワードが変更されました。'
+    registrations:
+      signed_up: 'アカウントが作成されました。'
+      updated: 'アカウントが更新されました。'
+    sessions:
+      signed_in: 'ログインしました。'

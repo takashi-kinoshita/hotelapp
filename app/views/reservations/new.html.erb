@@ -1,0 +1,45 @@
+  <h1>予約フォーム</h1>
+<%= form_with url: "/reservations/confirm", local: true, scope: :reservation do |f| %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <div class="form-group <%= 'field_with_errors' if @reservation.errors.include?(:check_in) %>">
+    <%= f.label :check_in, "チェックイン日" %>
+    <%= f.date_field :check_in, class: "form-control #{'is-invalid' if @reservation.errors.include?(:check_in)}" %>
+    <% if @reservation.errors.include?(:check_in) %>
+      <div class="invalid-feedback d-block">
+        <% @reservation.errors.full_messages_for(:check_in).each do |message| %>
+          <%= message %><br>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group <%= 'field_with_errors' if @reservation.errors.include?(:check_out) %>">
+    <%= f.label :check_out, "チェックアウト日" %>
+    <%= f.date_field :check_out, class: "form-control #{'is-invalid' if @reservation.errors.include?(:check_out)}" %>
+    <% if @reservation.errors.include?(:check_out) %>
+      <div class="invalid-feedback d-block">
+        <% @reservation.errors.full_messages_for(:check_out).each do |message| %>
+          <%= message %><br>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group <%= 'field_with_errors' if @reservation.errors.include?(:num_of_guests) %>">
+    <%= f.label :num_of_guests, "人数" %>
+    <%= f.number_field :num_of_guests, min: 1, class: "form-control #{'is-invalid' if @reservation.errors.include?(:num_of_guests)}" %>
+    <% if @reservation.errors.include?(:num_of_guests) %>
+      <div class="invalid-feedback d-block">
+        <% @reservation.errors.full_messages_for(:num_of_guests).each do |message| %>
+          <%= message %><br>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "予約する", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to "戻る", room_path(@room), class: "btn btn-secondary" %>

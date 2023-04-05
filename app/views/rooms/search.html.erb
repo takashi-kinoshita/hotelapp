@@ -1,0 +1,26 @@
+<h1>検索結果</h1>
+
+<p>施設の合計件数: <%= @rooms.count %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>施設画像</th> 
+      <th>施設名</th>
+      <th>住所</th>
+      <th>施設詳細</th>
+      <th>宿泊料金(/日)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= image_tag room.image.presence || "default_room.png", alt: "施設画像", width: "100" %></td> <!-- この行を追加 -->
+        <td><%= link_to room.name, room_path(room) %></td>
+        <td><%= room.address %></td>
+        <td><%= room.description %></td>
+        <td><%= room.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,64 @@
+// Place all the styles related to the Rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+// Colors
+$primary-color: #2c3e50;
+$secondary-color: #2980b9;
+$light-color: #ecf0f1;
+$dark-color: #34495e;
+
+// Typography
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+body {
+  font-family: $font-family;
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+.room-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: $light-color;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.room-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.room-image {
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.room-name {
+  h1 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+}
+
+.room-details {
+  margin-bottom: 1rem;
+}
+
+.room-price {
+  color: $secondary-color;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.room-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

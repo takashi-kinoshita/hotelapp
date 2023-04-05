@@ -1,0 +1,22 @@
+<h1>アカウント情報の編集</h1>
+
+<%= form_for current_user, url: account_path do |f| %>
+  <div>
+    <%= f.label :email, 'Email' %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <%= f.label :password, 'パスワード' %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, 'パスワード確認' %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <%= f.submit 'アカウント情報を更新する' %>
+<% end %>
+
+<%= link_to 'アカウント情報に戻る', account_path %>

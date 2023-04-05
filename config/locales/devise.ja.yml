@@ -1,0 +1,32 @@
+ja:
+  devise:
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+    registrations:
+      signed_up: "アカウント登録が完了しました。"
+      updated: "アカウント情報を変更しました。"
+      destroyed: "アカウントを削除しました。"
+    confirmations:
+      confirmed: "アカウントを認証しました。"
+    passwords:
+      send_instructions: "パスワードのリセット方法を数分以内にメールでご連絡します。"
+      updated: "パスワードを変更しました。"
+    unlocks:
+      send_instructions: "アカウントのロック解除方法を数分以内にメールでご連絡します。"
+      unlocked: "アカウントをロック解除しました。"
+    mailer:
+      confirmation_instructions:
+        subject: "アカウントの登録方法"
+      reset_password_instructions:
+        subject: "パスワードのリセット方法"
+      unlock_instructions:
+        subject: "アカウントのロック解除方法"
+  errors:
+    messages:
+      already_confirmed: "はすでに登録済みです。ログインしてください。"
+      not_found: "は見つかりませんでした。"
+      not_locked: "はロックされていません。"
+      not_saved:
+        one: "1つのエラーが発生したため、%{resource}を保存できませんでした。"
+        other: "%{count}つのエラーが発生したため、%{resource}を保存できませんでした。"
