@@ -3,7 +3,6 @@ class Room < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_one_attached :image
 
-  validates :image, image: true
   validates :name, presence: true
   validates :description, presence: true
   validates :price, presence: true
@@ -15,11 +14,7 @@ class Room < ApplicationRecord
     area_search.merge(keyword_search)
   end
 
-  def facility_image_url
-    self.image.present? ? self.image.url : 'default_room.png'
-  end
-
-  def icon_image_url
-    self.icon.present? ? self.icon.url : 'default_icon.png'
+  def room_image_url
+    image.attached? ? url_for(image) : 'default_room.png'
   end
 end

@@ -1,0 +1,20 @@
+<h1>予約内容の確認</h1>
+
+<p>チェックイン: <%= @reservation.check_in %></p>
+<p>チェックアウト: <%= @reservation.check_out %></p>
+<p>日数: <%= @reservation.total_days %>日</p>
+<p>人数: <%= @reservation.num_of_guests %>人</p>
+
+
+<p>上記内容で正しければ「確定」ボタンを押してください。</p>
+
+<%= form_with model: @reservation, url: reservations_path, method: :post, local: true do |form| %>
+  <%= form.hidden_field :check_in, value: @reservation.check_in %>
+  <%= form.hidden_field :check_out, value: @reservation.check_out %>
+  <%= form.hidden_field :num_of_guests, value: @reservation.num_of_guests %>
+  <%= form.hidden_field :total_payment, value: @reservation.total_payment %>
+  <%= form.hidden_field :room_id, value: @reservation.room_id %>
+  <%= form.submit "確定", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "キャンセル", room_path(@room), class: "btn btn-danger" %>

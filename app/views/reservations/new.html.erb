@@ -1,6 +1,6 @@
-<h1>予約フォーム</h1>
-
-<%= form_for [@room, @reservation] do |f| %>
+  <h1>予約フォーム</h1>
+<%= form_with url: "/reservations/confirm", local: true, scope: :reservation do |f| %>
+  <%= f.hidden_field :room_id, value: @room.id %>
   <div class="form-group <%= 'field_with_errors' if @reservation.errors.include?(:check_in) %>">
     <%= f.label :check_in, "チェックイン日" %>
     <%= f.date_field :check_in, class: "form-control #{'is-invalid' if @reservation.errors.include?(:check_in)}" %>

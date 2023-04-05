@@ -19,4 +19,14 @@ class Reservation < ApplicationRecord
   def total_price
     (check_out - check_in).to_i * room.price * num_of_guests
   end
+
+  def total_days
+    (check_out - check_in).to_i
+  end
+
+  def total_payment
+    total_days * room.price
+  end
+  
+  
 end

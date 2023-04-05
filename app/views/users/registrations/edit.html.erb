@@ -1,5 +1,7 @@
 <h2><%= resource_name.to_s.humanize %>の編集</h2>
 
+<%= link_to 'プロフィール編集', edit_user_path(current_user) %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -31,13 +33,10 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
-  <div class="actions">
     <%= f.submit "更新" %>
   </div>
 <% end %>
 
-<h3>アカウントの取り消し</h3>
-
-<div>不満？ <%= button_to "アカウントを取り消す", registration_path(resource_name), data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete %></div>
+<%= button_to "アカウントを取り消す", registration_path(resource_name), data: { confirm: "本当によろしいですか？", turbo_confirm: "本当によろしいですか？" }, method: :delete %>
 
 <%= link_to "戻る", :back %>

@@ -14,15 +14,20 @@
   </head>
 
   <body>
+    <% flash.each do |type, message| %>
+  <div class="alert alert-<%= type == :notice ? 'success' : 'danger' %>">
+    <%= message %>
+  </div>
+<% end %>
     <header>
       <%= link_to "HotelApp", root_path, class: "logo" %>
 
       <nav>
         <% if user_signed_in? %>
-          <%= image_tag current_user.icon_image_url, width: '50', height: '50', class: "profile-icon" %>
-          <div class="dropdown">
-  <%= link_to "#", { class: "dropdown-toggle nav-link", role: "button", id: "userMenu", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" } do %>
-    <%= current_user.name %> <span class="caret"></span>
+    <%= image_tag user_icon_image_url(current_user), width: '50', height: '50', class: "profile-icon" %>
+    <div class="dropdown">
+<%= link_to "#", { class: "dropdown-toggle nav-link", role: "button", id: "userMenu", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" } do %>
+  <%= current_user.name %> <span class="caret"></span>
   <% end %>
 
   <div class="dropdown-menu" aria-labelledby="userMenu">
